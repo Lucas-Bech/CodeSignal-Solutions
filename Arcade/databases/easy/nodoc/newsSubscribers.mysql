@@ -1,0 +1,11 @@
+CREATE PROCEDURE newsSubscribers()
+BEGIN
+    SELECT distinct subscriber
+    FROM full_year
+    WHERE newspaper LIKE BINARY "%Daily%"
+    UNION
+    SELECT distinct subscriber
+    FROM half_year
+    WHERE newspaper LIKE BINARY "%Daily%"
+    ORDER BY subscriber;
+END
